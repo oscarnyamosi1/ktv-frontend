@@ -8,8 +8,6 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' }
 })
 
-axios.defaults.withCredentials = true
-
 let isRefreshing = false
 let failedQueue = []
 
