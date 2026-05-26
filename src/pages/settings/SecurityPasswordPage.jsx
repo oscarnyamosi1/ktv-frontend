@@ -118,9 +118,7 @@ export default function SecurityPasswordPage() {
 
                 {/* Strength Bar */}
                 <div className="strength-bar">
-                  <div
-                    className={`strength ${strength}`}
-                  />
+                  <div className={`strength level-${strength}`}></div>
                 </div>
               </div>
 
