@@ -8,6 +8,8 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' }
 })
 
+axios.defaults.withCredentials = true
+
 let isRefreshing = false
 let failedQueue = []
 
@@ -20,6 +22,8 @@ const processQueue = (error) => {
   failedQueue = []
 }
 
+
+
 api.interceptors.response.use(
   (response) => response,
 
@@ -30,7 +34,6 @@ api.interceptors.response.use(
       originalRequest.url?.includes('/auth/login/') ||
       originalRequest.url?.includes('/auth/register/') ||
       originalRequest.url?.includes('/auth/logout/') ||
-      originalRequest.url?.includes('/auth/me/') ||
       originalRequest.url?.includes('/refresh/')
 
     if (
