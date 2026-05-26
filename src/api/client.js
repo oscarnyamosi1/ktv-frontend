@@ -95,8 +95,8 @@ export const jobsApi = {
   save: (id) => api.post(`/jobs/${id}/save/`),
   unsave: (id) => api.post(`/jobs/${id}/unsave/`),
   apply: (id) => api.post(`/jobs/${id}/apply/`),
-  isSaved:(jobId) => api.post(`jobs/checkJobSavedStatus/`,{ jobId }),
-  isApplied:(jobId) => api.post(`jobs/checkJobAppliedStatus/`,{ jobId })
+  isSaved:(jobId) => api.post(`/jobs/checkJobSavedStatus/`,{ jobId }),
+  isApplied:(jobId) => api.post(`/jobs/checkJobAppliedStatus/`,{ jobId })
 }
 
 // Messages
