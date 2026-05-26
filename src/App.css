@@ -1,0 +1,17 @@
+/* App-level overrides */
+.mobile-nav-logout{
+    display:none;
+}
+
+/* @media (max-width: 426px) {
+    .mobile-nav-logout{
+        display:block;
+    }
+} */
+
+@media (max-width: 709px) {
+    .mobile-nav-logout{
+        display:block;
+    }
+}
+

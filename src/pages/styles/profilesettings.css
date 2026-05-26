@@ -1,0 +1,245 @@
+/* =========================
+   Layout
+========================= */
+
+.main-area {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  background: var(--bg, #0f172a);
+  /* min-height: 60vh; */
+  max-height: 100vh;
+  scrollbar-width: none;
+  overflow-y:scroll;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 720px;
+}
+
+/* =========================
+   Page Header
+========================= */
+
+.page-header {
+  margin-bottom: 18px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--foreground, #fff);
+}
+
+/* =========================
+   Glass Card (reuse Django style)
+========================= */
+
+.glass-card,
+.settings-group,
+.profile-summary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+/* =========================
+   Profile Summary
+========================= */
+
+.profile-summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.profile-summary:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.profile-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.profile-status {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
+/* =========================
+   Settings Item
+========================= */
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.settings-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.item-icon-wrapper {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--primary, #6366f1);
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.item-subtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}
+
+/* Chevron */
+.chevron-icon {
+  opacity: 0.5;
+}
+
+/* =========================
+   Section Header
+========================= */
+
+.section-header {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 18px 4px 8px;
+}
+
+/* =========================
+   Danger (logout)
+========================= */
+
+.danger-item .item-icon-wrapper {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.danger-item .item-title {
+  color: #ef4444;
+}
+
+/* =========================
+   Buttons (logout wrapper)
+========================= */
+
+.settings-link-button {
+  all: unset;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+/* =========================
+   Footer
+========================= */
+
+.settings-footer {
+  margin-top: 24px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.settings-footer a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.settings-footer a:hover {
+  color: #fff;
+}
+
+/* LEFT SIDEBAR */
+.sidebar-left {
+  width: 260px;
+}
+
+/* MAIN CONTENT */
+.content-container {
+  flex: 1;
+  padding: 24px;
+  max-width: 900px;
+}
+
+/* SETTINGS UI (same as Django) */
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-title {
+  font-weight: 600;
+  color: white;
+}
+
+.item-subtitle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}

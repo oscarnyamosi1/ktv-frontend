@@ -1,0 +1,91 @@
+.upload-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+}
+
+.upload-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  transition: 0.2s;
+}
+
+.upload-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.upload-item.completed {
+  opacity: 0.7;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-content {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.item-label {
+  font-weight: 600;
+}
+
+.item-meta {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+.file-preview {
+  font-size: 12px;
+  margin-top: 4px;
+  color: var(--muted-foreground);
+}
+
+.upload-btn {
+  padding: 8px 12px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.status {
+  color: #22c55e;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 10px;
+}

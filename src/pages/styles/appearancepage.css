@@ -1,0 +1,95 @@
+.theme-grid-modern {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* CARD */
+.theme-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px;
+  border-radius: 16px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+
+  transition: 0.25s ease;
+  overflow: hidden;
+}
+
+.theme-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* preview block */
+.theme-preview {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+}
+
+/* tiny color dots */
+.theme-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* text */
+.theme-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+.theme-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* active state */
+.theme-card.active {
+  outline: 2px solid rgba(99,102,241,0.7);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+}
+
+/* check badge */
+.active-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 20px;
+  height: 20px;
+
+  background: #22c55e;
+  color: white;
+
+  border-radius: 50%;
+  font-size: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* page text */
+.subtitle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-top: -6px;
+}
