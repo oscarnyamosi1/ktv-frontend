@@ -3,6 +3,10 @@
     {
       "source": "/api/(.*)",
       "destination": "https://kenyateachers.pythonanywhere.com/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
