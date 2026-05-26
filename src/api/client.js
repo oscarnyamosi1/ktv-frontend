@@ -50,7 +50,7 @@ api.interceptors.response.use(
 
       try {
         // FIXED: ensure refresh always hits correct endpoint
-        await api.post('/refresh/')
+        await refreshApi.post('/refresh/')
 
         processQueue(null)
 
@@ -74,13 +74,20 @@ api.interceptors.response.use(
   }
 )
 
+// Refresh api
+
+const refreshApi = axios.create({
+  baseURL: API_URL,
+  withCredentials: true
+})
+
 // Auth
 export const authApi = {
   login: (data) => api.post('/auth/login/', data),
   logout: () => api.post('/auth/logout/'),
   register: (data) => api.post('/auth/register/', data),
   me: () => api.get('/auth/me/'),
-  refresh: () => api.post('/refresh/'), 
+  refresh: () => refreshApi.post('/refresh/'), 
 }
 
 // Jobs
