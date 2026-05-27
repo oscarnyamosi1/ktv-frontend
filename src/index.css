@@ -76,7 +76,7 @@ button {
 }
 .overlay-content{
   position:relative;
-  /* background-color: red; */
+  background-color: rgba(37, 37, 69, 0.953);
   display: flex;
   flex-direction: row;
   max-width:55%;
