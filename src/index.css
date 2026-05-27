@@ -71,7 +71,7 @@ button {
   width:100%;
   align-content:center;
   justify-content:center;
-  background-color: rgba(64, 64, 124, 0.718);
+  background-color: transparent;
   z-index: 100;
 }
 .overlay-content{
@@ -79,6 +79,7 @@ button {
   background-color: rgba(37, 37, 69, 0.953);
   display: flex;
   flex-direction: row;
+  border-radius:var(--radius-lg);
   max-width:55%;
   padding-top:-40%;
   z-index: 101;

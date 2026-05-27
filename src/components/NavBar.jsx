@@ -23,7 +23,7 @@ export default function NavBar() {
     <>
       <nav className="top-nav">
         <Link to="/" className="logo-area">
-          <img src={`${LogoUrl}`} />
+          <img src='ktvlogo.png' />
           <span className='site-name'>Kenya Teaching Vacancies</span>
         </Link>
 
