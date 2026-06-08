@@ -102,7 +102,8 @@ export const jobsApi = {
   unsave: (id) => api.post(`/jobs/${id}/unsave/`),
   apply: (id) => api.post(`/jobs/${id}/apply/`),
   isSaved:(jobId) => api.post(`/jobs/checkJobSavedStatus/`,{ jobId }),
-  isApplied:(jobId) => api.post(`/jobs/checkJobAppliedStatus/`,{ jobId })
+  isApplied:(jobId) => api.post(`/jobs/checkJobAppliedStatus/`,{ jobId }),
+  postJob: (data) => api.post('/jobs/postjob/', data)
 }
 
 // Messages
@@ -116,10 +117,18 @@ export const applicationsApi = {
   withdraw: (jobId) => api.delete(`/jobs/applications/${jobId}/withdraw/`),
 }
 
+// Locations
+export const locationsApi = {
+  getCounties: () => api.get('/locations/getcounties/'),
+  getCountyConstituencies: (county) => api.get('/locations/constituencies/', { params: { county } }),
+}
+
+
 // Teacher
 export const teacherApi = {
   profile: () => api.get('/teacher/profile/'),
   update: (data) => api.patch('/teacher/profile/', data),
+  getEmployerProfile:() => api.get('/teacher/employerprofile/')
 }
 
 // Schools

@@ -160,12 +160,23 @@
   justify-content: space-between;
   gap: 8px;
   border:solid;
+  outline: none;
 }
 
 .text-input-placeholder {
   color: var(--muted-foreground);
   font-size: 15px;
   font-weight: 400;
+}
+
+input.text-input-placeholder{
+  background-color: transparent;
+  border:none;
+  outline: none;
+}
+
+.text-input-placeholder :focus{
+  border-color:blue;
 }
 
 .multiline-input {

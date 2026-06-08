@@ -1,0 +1,66 @@
+.school { display: flex; flex-direction: column; gap: 20px; }
+
+.school__card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.school__section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.school__logo-row { max-width: 320px; }
+
+.school__info-text { font-size: 13px; color: hsl(var(--muted-foreground)); margin: 0; }
+
+.school__admins { display: flex; flex-direction: column; gap: 12px; }
+.school__admin-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: hsl(var(--muted) / 0.5);
+  border-radius: 8px;
+}
+.school__admin-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.school__admin-name { font-size: 13.5px; font-weight: 600; color: hsl(var(--foreground)); }
+.school__admin-role { font-size: 12px; color: hsl(var(--muted-foreground)); }
+.school__admin-badge {
+  margin-left: auto;
+  padding: 3px 10px;
+  background: hsl(162 62% 40% / 0.2);
+  color: hsl(162 62% 55%);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.school__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.school__saved { font-size: 13px; color: hsl(162 62% 55%); }
+.school__loading { padding: 40px; text-align: center; color: hsl(var(--muted-foreground)); }

@@ -2,24 +2,27 @@ import { useState, useEffect } from 'react'
 import { schoolsApi } from '../api/client'
 import Layout from '../components/Layout'
 
-const FALLBACK_IMG = 'https://storage.googleapis.com/banani-avatars/avatar%2Fmale%2F35-50%2FAfrican%2F2'
+const FALLBACK_IMG = import.meta.VITE_LOGO_URL
+
 
 
 function SchoolCard({ school }) {
   const [isFollowing,setIsFollowing] = useState(false)
-  
+
   const followSchool = async (schoolId) => {
     schoolsApi.follow(schoolId)
     const res = await schoolsApi.checkFollowing(schoolId)
-    res.data?.isFollowing?setIsFollowing(true):setIsFollowing(false)
+    res.data?.isFollowing === true?setIsFollowing(true):setIsFollowing(false)
   }
 
   const unfollowSchool = async (schoolId) => {
     schoolsApi.unfollow(schoolId)
     const res = await schoolsApi.checkFollowing(schoolId)
-    res.data?.isFollowing?setIsFollowing(true):setIsFollowing(false)
-
+    res.data?.isFollowing === true?setIsFollowing(true):setIsFollowing(false)
   }
+
+
+
 
   return (
     <div className="glass card" style={{ padding: 20, display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -27,7 +30,7 @@ function SchoolCard({ school }) {
         src={school.logo || FALLBACK_IMG}
         alt={school.name}
         style={{ width: 56, height: 56, borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--border)', flexShrink: 0 }}
-        onError={e => {e.target.src = FALLBACK_IMG }}
+        // onError={e => {e.target.src = FALLBACK_IMG }} overloads network with requests
       />
       <div style={{ flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
@@ -62,6 +65,7 @@ export default function Schools() {
       .then(res => setSchools(res.data.results || res.data))
       .catch(() => {})
       .finally(() => setLoading(false))
+
   }
 
   useEffect(() => { fetchSchools() }, [])
@@ -69,6 +73,7 @@ export default function Schools() {
   const handleSearch = (e) => {
     e.preventDefault()
     fetchSchools()
+  
   }
   
 

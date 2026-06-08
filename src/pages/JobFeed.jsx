@@ -76,6 +76,8 @@ export default function JobFeed() {
       <a href="/jobs/postjob">
         <div className="post-job">
           <div className="plus-sign">+</div>
+          <div className="plus-text">Post Job</div>
+           
         </div>
       </a>
 

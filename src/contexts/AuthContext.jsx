@@ -20,18 +20,22 @@ export function AuthProvider({ children }) {
 useEffect(() => {
 
   const checkAuth = async () => {
-
     try {
-
+      // Add timeout of 5 seconds
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 5000)
+      
       const res = await authApi.me()
+      clearTimeout(timeoutId)
 
       setUser(res.data)
 
     } catch (err) {
-      err? setUser(null):''
+      console.error('Auth check failed:', err.message)
+      // Always set loading to false even on error to allow app to render
+      setUser(null)
 
     } finally {
-
       setLoading(false)
     }
   }

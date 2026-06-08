@@ -23,7 +23,7 @@ function ApplicationCard({ application, onWithdraw }) {
     setWithdrawing(false)
   }
 
-  const schoolName = application?.employer?.school?.name || application?.employer?.username || 'Unknown School'
+  const schoolName = application?.job?.employer?.school?.name || application?.employer?.username || 'Unknown School'
   const countyName = application?.county?.title || ''
   const schoolLogo = application?.employer?.school?.logo || FALLBACK_IMG
 

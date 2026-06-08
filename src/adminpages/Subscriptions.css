@@ -1,0 +1,135 @@
+.subs { display: flex; flex-direction: column; gap: 28px; }
+
+.subs__section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin: 0 0 14px;
+}
+
+.subs__current {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  padding: 24px;
+}
+.subs__plan-info { display: flex; flex-direction: column; gap: 8px; }
+.subs__plan-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  background: hsl(var(--primary) / 0.15);
+  color: hsl(var(--primary));
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  width: fit-content;
+}
+.subs__plan-desc { font-size: 13.5px; color: hsl(var(--foreground)); margin: 0; }
+.subs__plan-renewal { font-size: 12.5px; color: hsl(var(--muted-foreground)); margin: 0; }
+
+.subs__plans {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.subs__plan {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+.subs__plan--active { border-color: hsl(var(--primary)); }
+
+.subs__plan-current-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 8px;
+  background: hsl(var(--primary));
+  color: #fff;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.subs__plan-name { font-size: 16px; font-weight: 700; color: hsl(var(--foreground)); margin: 0; }
+.subs__plan-price { font-size: 18px; font-weight: 700; color: hsl(var(--primary)); }
+
+.subs__plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.subs__plan-features li {
+  font-size: 12.5px;
+  color: hsl(var(--muted-foreground));
+  padding-left: 14px;
+  position: relative;
+}
+.subs__plan-features li::before { content: "•"; position: absolute; left: 0; color: hsl(var(--primary)); }
+
+.subs__plan-btn {
+  width: 100%;
+  padding: 9px;
+  border-radius: 7px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: hsl(var(--primary));
+  color: #fff;
+  transition: opacity 0.15s;
+}
+.subs__plan-btn:hover:not(:disabled) { opacity: 0.85; }
+.subs__plan-btn--active { background: hsl(var(--muted)); color: hsl(var(--muted-foreground)); cursor: default; }
+
+.subs__boosts {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.subs__boosts-header { display: flex; align-items: center; justify-content: space-between; }
+.subs__boost-desc { font-size: 13px; color: hsl(var(--muted-foreground)); margin: 0; }
+.subs__boost-bar { height: 8px; background: hsl(var(--muted)); border-radius: 4px; overflow: hidden; }
+.subs__boost-used { height: 100%; background: hsl(var(--primary)); border-radius: 4px; }
+.subs__boost-label { font-size: 12px; color: hsl(var(--muted-foreground)); }
+
+.subs__payments { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 10px; padding: 24px; }
+
+.subs__table-wrap { overflow-x: auto; border-radius: 6px; border: 1px solid hsl(var(--border)); }
+.subs__table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.subs__table th {
+  padding: 11px 14px;
+  background: hsl(var(--muted));
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.subs__table td { padding: 11px 14px; border-top: 1px solid hsl(var(--border)); color: hsl(var(--foreground)); }
+.subs__invoice-id { color: hsl(var(--primary)); font-weight: 600; }
+.subs__download-btn {
+  padding: 4px 10px;
+  background: hsl(var(--muted));
+  border: none;
+  border-radius: 5px;
+  color: hsl(var(--foreground));
+  font-size: 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) { .subs__plans { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .subs__plans { grid-template-columns: 1fr; } }

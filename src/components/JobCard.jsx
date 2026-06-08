@@ -54,7 +54,7 @@ export default function JobCard({ job, initialSaved = false, onApplied }) {
       const res = await jobsApi.isSaved(job.id)
       res.data.isSaved === true ?(jobsApi.unsave(job.id)):(jobsApi.save(job.id))
       res.data.isSaved === true ?setSaved(false):setSaved(true)
-    } catch {}
+    } catch (err){console.log(err)}
   }
 
   const handleApply = async (e) => {
@@ -63,8 +63,9 @@ export default function JobCard({ job, initialSaved = false, onApplied }) {
     setApplying(true)
     setError('')
     try {
-      await jobsApi.apply(job.id)
-      setApplied(true)
+      const res = await jobsApi.apply(job.id)
+      res?.status == "200"?"owkay":"not owkay"
+           setApplied(true)
       if (onApplied) onApplied(job.id)
     } catch (err) {
       setError(err.response?.data?.error || 'Could not apply.')

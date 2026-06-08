@@ -1,12 +1,13 @@
 .post-job{
     border-radius: 50%;
     border:dashed 4px;
-    border-color: blue;
+    border-color: var(--primary);
     width:50px;
     height:50px;
     justify-content: center;
     margin-bottom:30px;
     cursor: pointer;
+    
   
 }
 .plus-sign{
@@ -15,4 +16,9 @@
     justify-self:center;
     align-self: center;
     padding:2px;
+}
+
+.plus-text{
+    min-width: 100px;
+    margin-top:10px;
 }

@@ -6,20 +6,11 @@ export default defineConfig({
   plugins: [react()],
 
   server: {
-    host: "localhost",   // force consistent origin (IMPORTANT for cookies)
-    port: 5173,
+    host: "127.0.0.1",   // force consistent origin (IMPORTANT for cookies)
+    port: 5000,
     strictPort: true,
     allowedHosts: 'all',
 
-    proxy: {
-      '/api': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
-      },
-      '/media': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
-      },
-    },
-  },
+     }
+
 })

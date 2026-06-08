@@ -1,0 +1,43 @@
+.stat-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 3px solid hsl(var(--primary));
+}
+.stat-card--green { border-left-color: hsl(var(--chart-2)); }
+.stat-card--yellow { border-left-color: hsl(var(--chart-3)); }
+.stat-card--red { border-left-color: hsl(var(--chart-4)); }
+.stat-card--purple { border-left-color: hsl(var(--chart-5)); }
+
+.stat-card__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.stat-card__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  line-height: 1;
+}
+.stat-card__sub {
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+}
+.stat-card__skeleton {
+  height: 28px;
+  width: 80px;
+  background: hsl(var(--muted));
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
