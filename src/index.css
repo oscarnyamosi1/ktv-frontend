@@ -29,10 +29,43 @@
   --font-body: 'Inter', 'DM Sans', system-ui, sans-serif;
 }
 
+/* ── Light Theme Override ── */
+[data-theme="light"] {
+  --background: #f0f4f8;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-sidebar: rgba(255, 255, 255, 0.7);
+  --foreground: #0f172a;
+  --border: #cbd5e1;
+  --input: #ffffff;
+  --primary: #0284c7;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #334155;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --success: #16a34a;
+  --accent: #0284c7;
+  --destructive: #dc2626;
+  --warning: #d97706;
+  --card: rgba(255, 255, 255, 0.9);
+  --card-foreground: #0f172a;
+  --sidebar: #ffffff;
+  --tag-bg: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .top-nav {
+  background: rgba(240, 244, 248, 0.92);
+}
+
+[data-theme="light"] .glass {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
 }
 
 body {
