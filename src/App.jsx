@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
+import { SubscriptionProvider } from './contexts/SubscriptionContext'
+import Subscription from './pages/Subscription'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import JobFeed from './pages/JobFeed'
@@ -58,8 +60,8 @@ function AppRoutes() {
       {/* <Route path="/settings/security/email" element={<PrivateRoute><SecurityEmailPage /></PrivateRoute>} /> */}
       {/* <Route path="/settings/security/2fa" element={<PrivateRoute><Security2FAPage /></PrivateRoute>} /> */}
 
-      <Route path="/settings/view-documents" element={<PrivateRoute><DocumentsPage /></PrivateRoute>} />
-      <Route path="/settings/notifications" element={<PrivateRoute><NotificationSettingsPage /></PrivateRoute>} />
+      {/* <Route path="/settings/view-documents" element={<PrivateRoute><DocumentsPage /></PrivateRoute>} /> */}
+      {/* <Route path="/settings/notifications" element={<PrivateRoute><NotificationSettingsPage /></PrivateRoute>} /> */}
 
       <Route path="/messages" element={<PrivateRoute><Messages /></PrivateRoute>} />
       <Route path="/notifications" element={<PrivateRoute><Notifications /></PrivateRoute>} />
@@ -75,6 +77,7 @@ function AppRoutes() {
       
       <Route path="/myapplications" element={<PrivateRoute><MyApplications /></PrivateRoute>} />
       <Route path="/profile" element={<PrivateRoute><TeacherProfile /></PrivateRoute>} />
+      <Route path="/subscription" element={<PrivateRoute><Subscription /></PrivateRoute>} />
 
       <Route path="*" element={<NotFound />} />
     </Routes>
@@ -85,7 +88,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <AppRoutes />
+        <SubscriptionProvider>
+          <AppRoutes />
+        </SubscriptionProvider>
       </AuthProvider>
     </BrowserRouter>
   )

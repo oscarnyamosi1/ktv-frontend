@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { jobsApi } from '../api/client'
 import { useAuth } from '../contexts/AuthContext'
+import { useSubscription } from '../contexts/SubscriptionContext'
 import Layout from '../components/Layout'
+import SubscriptionModal from '../components/SubscriptionModal'
+import '../pages/styles/subscription.css'
 
 const FALLBACK_IMG = 'https://storage.googleapis.com/banani-avatars/avatar%2Fmale%2F35-50%2FAfrican%2F2'
 
@@ -10,12 +13,14 @@ export default function JobDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { user } = useAuth()
+  const { canApply, isSubscribed, appsRemaining, freeLimit, incrementAppCount } = useSubscription()
   const [job, setJob] = useState(null)
   const [loading, setLoading] = useState(true)
   const [saved, setSaved] = useState(false)
   const [applied, setApplied] = useState(false)
   const [applying, setApplying] = useState(false)
   const [error, setError] = useState('')
+  const [showSubModal, setShowSubModal] = useState(false)
 
   useEffect(() => {
     jobsApi.detail(id)
@@ -41,13 +46,20 @@ export default function JobDetail() {
 
   const handleApply = async () => {
     if (!user) { navigate('/login'); return }
+    if (!canApply) { setShowSubModal(true); return }
     setApplying(true)
     setError('')
     try {
       await jobsApi.apply(job.id)
+      incrementAppCount()
       setApplied(true)
     } catch (err) {
-      setError(err.response?.data?.error || 'Could not apply.')
+      const msg = err.response?.data?.error || ''
+      if (err.response?.status === 403 && msg.toLowerCase().includes('limit')) {
+        setShowSubModal(true)
+      } else {
+        setError(msg || 'Could not apply.')
+      }
     } finally {
       setApplying(false)
     }
@@ -65,6 +77,7 @@ export default function JobDetail() {
   const countyName = job.county?.title || ''
 
   return (
+    <>
     <Layout>
       <button onClick={() => navigate(-1)} className="btn btn-ghost" style={{ marginBottom: 16 }}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -101,6 +114,25 @@ export default function JobDetail() {
         </div>
 
         {error && <div className="error-msg">{error}</div>}
+
+        {user && !isSubscribed && (
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8,
+            background: appsRemaining === 0 ? 'rgba(234,88,12,0.08)' : 'var(--glass-bg)',
+            border: `1px solid ${appsRemaining === 0 ? 'rgba(234,88,12,0.3)' : 'var(--border)'}`,
+            borderRadius: 'var(--radius-md)', padding: '8px 14px',
+            fontSize: 13, marginBottom: 14,
+            color: appsRemaining === 0 ? '#ea580c' : 'var(--muted-foreground)',
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            {appsRemaining === 0
+              ? <>Free limit reached. <button onClick={() => navigate('/subscription')} style={{ background:'none', border:'none', cursor:'pointer', color:'var(--primary)', fontWeight:600, padding:0, fontSize:13 }}>Subscribe for KSh 200/mo</button> to apply.</>
+              : <>{appsRemaining} free application{appsRemaining !== 1 ? 's' : ''} left this month · <button onClick={() => navigate('/subscription')} style={{ background:'none', border:'none', cursor:'pointer', color:'var(--primary)', fontWeight:600, padding:0, fontSize:13 }}>Upgrade</button></>
+            }
+          </div>
+        )}
 
         <div style={{ display: 'flex', gap: 12, marginBottom: 28 }}>
           {applied ? (
@@ -158,5 +190,8 @@ export default function JobDetail() {
         </div>
       </div>
     </Layout>
+
+    {showSubModal && <SubscriptionModal onClose={() => setShowSubModal(false)} />}
+    </>
   )
 }

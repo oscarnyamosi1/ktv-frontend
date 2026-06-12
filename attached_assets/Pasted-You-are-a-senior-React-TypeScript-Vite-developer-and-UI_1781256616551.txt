@@ -1,0 +1,301 @@
+You are a senior React + TypeScript + Vite developer and UI/UX designer.
+
+I have uploaded an existing React project ZIP. Analyze the entire project structure, components, routes, API services, state management, and styling before making any changes.
+
+Primary Goal
+
+Transform this project into a professional Kenya Teaching Vacancies Portal while preserving:
+
+Existing routing structure
+Existing page layout hierarchy
+Existing component architecture
+Existing functionality where applicable
+Existing navigation flow
+Existing project intention and user experience
+
+Do NOT rebuild from scratch.
+
+Extend and complete the existing project.
+
+Design Requirements
+
+Use the visual style of:
+
+https://benkiz.vercel.app
+
+as inspiration only.
+
+Replicate the design language:
+
+Clean modern interface
+Professional card layouts
+Large hero sections
+Smooth spacing
+Rounded corners
+Premium shadows
+Mobile-first responsiveness
+Elegant typography
+Soft animations
+Professional CTA sections
+Consistent color system
+
+However:
+
+DO NOT copy assets.
+Leave logo areas as placeholders.
+Use placeholder SVG/logo components.
+Use placeholder favicon.
+Use placeholder organization branding.
+Website Purpose
+
+Create a platform called:
+
+Kenya Teaching Vacancies
+
+A portal that helps teachers discover teaching opportunities across Kenya.
+
+Required Pages
+Home Page
+
+Include:
+
+Hero section
+Search vacancies
+Featured jobs
+County-based vacancies
+Latest vacancies
+Teaching categories
+Why use our platform
+Statistics section
+Call to action
+Footer
+Vacancies Page
+
+Features:
+
+Search
+Filters
+
+Filters:
+
+County
+Institution Type
+Subject
+Job Type
+Experience Level
+
+Display jobs in modern cards.
+
+Each card should show:
+
+Job title
+School
+County
+Subject
+Application deadline
+Vacancy type
+Apply button
+Vacancy Details Page
+
+Include:
+
+Full job description
+Requirements
+Qualifications
+Responsibilities
+Deadline
+School details
+Apply button
+Related vacancies
+Counties Page
+
+Show all 47 Kenyan counties.
+
+Display:
+
+County name
+Number of vacancies
+View vacancies button
+
+Use attractive responsive cards.
+
+Subjects Page
+
+Examples:
+
+Mathematics
+English
+Kiswahili
+Chemistry
+Biology
+Physics
+CRE
+History
+Geography
+Agriculture
+Computer Studies
+Business Studies
+
+Each subject links to vacancies.
+
+Schools Page
+
+Directory of schools.
+
+Display:
+
+School name
+County
+Type
+Vacancy count
+About Page
+
+Explain:
+
+Mission
+Vision
+Purpose of platform
+Benefits for teachers
+Contact Page
+
+Include:
+
+Contact form
+Email placeholder
+Phone placeholder
+Social links placeholders
+Admin Features (Mock)
+
+Create frontend-ready admin pages:
+
+Admin Dashboard
+
+Statistics:
+
+Total vacancies
+Active vacancies
+Schools
+Counties
+Manage Vacancies
+
+CRUD UI
+
+Manage Schools
+
+CRUD UI
+
+Manage Counties
+
+CRUD UI
+
+Use mock data if backend isn't present.
+
+Components To Create
+
+Reusable:
+
+Navbar
+Footer
+VacancyCard
+CountyCard
+SchoolCard
+SearchBar
+FilterSidebar
+StatsSection
+HeroSection
+CTASection
+EmptyState
+LoadingSkeleton
+Data Structure
+
+Create mock JSON data for:
+
+Vacancy
+{
+ id: number
+ title: string
+ school: string
+ county: string
+ subject: string
+ type: string
+ deadline: string
+ description: string
+ requirements: string[]
+}
+School
+{
+ id: number
+ name: string
+ county: string
+ type: string
+ vacancies: number
+}
+Styling Requirements
+
+Use:
+
+CSS Modules OR Tailwind if project already uses it
+Fully responsive
+Mobile
+Tablet
+Desktop
+
+Create:
+
+Smooth hover effects
+Card transitions
+Loading animations
+Modern spacing system
+
+Design should feel:
+
+Professional
+Government-grade
+Trusted
+Modern
+Branding Placeholders
+
+Keep placeholders for:
+
+Main logo
+Footer logo
+Partner logos
+Government logos
+School logos
+
+Use temporary SVG placeholders.
+
+SEO
+
+Add:
+
+Page titles
+Meta descriptions
+Open Graph placeholders
+Performance
+
+Optimize:
+
+Lazy loading routes
+Code splitting
+Reusable components
+Image placeholders
+Final Deliverables
+Complete all missing pages.
+Fix broken routes.
+Fix broken imports.
+Fix build errors.
+Ensure npm run build succeeds.
+Ensure responsive design.
+Maintain original project structure as much as possible.
+Generate realistic Kenyan teaching vacancy mock data.
+Produce a polished production-ready frontend.
+Leave clear comments showing where logos, API endpoints, and branding should later be inserted.
+
+Before coding, first analyze the uploaded project and explain:
+
+Current structure
+Missing features
+Proposed changes
+
+Then implement the changes incrementally without breaking existing functionality.
